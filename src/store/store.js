@@ -14,7 +14,7 @@ const initialState = {
   logs: lsLogs,
 };
 
-const reducer = combineReducers({
+export const reducer = combineReducers({
   logs: logsReducer,
 });
 

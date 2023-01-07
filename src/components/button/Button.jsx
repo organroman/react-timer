@@ -1,45 +1,26 @@
 import { Button } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { addToLogs, clearLogs } from "../../store/actions";
 
 const TimerButton = ({ text, id, colorType, handleClick }) => {
-  //   const dispatch = useDispatch();
-  //   //   const logs = useSelector((state) => state.logs);
-
-  //   const setTimeStep = (clickedBtn) => {
-  //     const clickDate = new Date();
-  //     const clickTime = clickDate.getTime();
-
-  //     setTimeout(() => {
-  //       const logDate = new Date();
-  //       const logTime = new Date().getTime();
-
-  //       const timeStep =
-  //         "Button #:" +
-  //         clickedBtn +
-  //         " " +
-  //         logDate.toLocaleTimeString() +
-  //         " " +
-  //         clickDate.toLocaleTimeString() +
-  //         " " +
-  //         `(${(logTime - clickTime) / 1000} sec)`;
-  //       console.log(timeStep);
-  //       dispatch(addToLogs(timeStep));
-  //     }, clickedBtn * 1000);
-  //   };
-
-  //   const handleClick = (e) => {
-  //     const clickedBtn = e.target.id;
-  //     clickedBtn === "clear" ? dispatch(clearLogs()) : setTimeStep(clickedBtn);
-  //   };
-
   return (
     <Button
       variant="contained"
-      size="large"
       color={colorType}
       id={id}
       onClick={handleClick}
+      sx={(theme) => ({
+        [theme.breakpoints.down("sm")]: {
+          fontSize: "12px",
+          padding: "5px 10px",
+        },
+        [theme.breakpoints.up("sm")]: {
+          fontSize: "14px",
+          padding: "10px 20px",
+        },
+        [theme.breakpoints.up("md")]: {
+          fontSize: "16px",
+          padding: "15px 30px",
+        },
+      })}
     >
       {text}
     </Button>
