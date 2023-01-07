@@ -1,7 +1,7 @@
 import { Stack, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
-import LogsList from "./components/logs/Logs";
+import LogsList from "./components/Logs/Logs";
 import Timer from "./components/Timer/Timer";
 
 function App() {
