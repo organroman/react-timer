@@ -1,5 +1,5 @@
-import { Box, Container, Divider, Stack } from "@mui/material";
-import TimerButton from "../button/Button";
+import { Container, Divider, Stack } from "@mui/material";
+import TimerButton from "../Button/Button";
 import { useDispatch } from "react-redux";
 import { addToLogs, clearLogs } from "../../store/actions";
 
