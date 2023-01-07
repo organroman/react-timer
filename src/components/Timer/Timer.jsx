@@ -1,11 +1,10 @@
-import { Box, Divider, Stack } from "@mui/material";
+import { Box, Container, Divider, Stack } from "@mui/material";
 import TimerButton from "../button/Button";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToLogs, clearLogs } from "../../store/actions";
 
 const Timer = () => {
   const dispatch = useDispatch();
-  //   const logs = useSelector((state) => state.logs);
 
   const setTimeStep = (clickedBtn) => {
     const clickDate = new Date();
@@ -24,7 +23,7 @@ const Timer = () => {
         clickDate.toLocaleTimeString() +
         " " +
         `(${(logTime - clickTime) / 1000} sec)`;
-      console.log(timeStep);
+
       dispatch(addToLogs(timeStep));
     }, clickedBtn * 1000);
   };
@@ -35,39 +34,42 @@ const Timer = () => {
   };
   return (
     <>
-      <Stack
-        direction="row"
-        divider={<Divider orientation="vertical" flexItem />}
-        justifyContent="center"
-        spacing={3}
-      >
-        <TimerButton
-          colorType="primary"
-          text="1 sec"
-          id="1"
-          handleClick={handleClick}
-        />
-        <TimerButton
-          colorType="primary"
-          text="2 sec"
-          id="2"
-          handleClick={handleClick}
-        />
-        <TimerButton
-          colorType="primary"
-          text="3 sec"
-          id="3"
-          handleClick={handleClick}
-        />
-        <TimerButton
-          colorType="error"
-          text="clear"
-          id="clear"
-          handleClick={handleClick}
-        />
-      </Stack>
-
-      <Box></Box>
+      <Container>
+        <Stack
+          direction="row"
+          divider={<Divider orientation="vertical" flexItem />}
+          justifyContent="space-evenly"
+          m="0 15px"
+        >
+          <TimerButton
+            colorType="primary"
+            text="1 sec"
+            id="1"
+            handleClick={handleClick}
+            sx={(theme) => ({
+              [theme.breakpoints.down("sm")]: { padding: "10px 15px" },
+            })}
+          />
+          <TimerButton
+            colorType="primary"
+            text="2 sec"
+            id="2"
+            handleClick={handleClick}
+          />
+          <TimerButton
+            colorType="primary"
+            text="3 sec"
+            id="3"
+            handleClick={handleClick}
+          />
+          <TimerButton
+            colorType="error"
+            text="clear"
+            id="clear"
+            handleClick={handleClick}
+          />
+        </Stack>
+      </Container>
     </>
   );
 };

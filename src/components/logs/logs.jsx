@@ -6,8 +6,21 @@ const LogsList = () => {
   return (
     <>
       <Stack>
-        {logs.map((log) => {
-          return <Typography key={log.index}>{log}</Typography>;
+        {logs.map((log, index) => {
+          return (
+            <Typography
+              variant="h6"
+              sx={(theme) => (
+                { color: "#404258" },
+                {
+                  [theme.breakpoints.down("sm")]: { fontSize: "16px" },
+                }
+              )}
+              key={index}
+            >
+              {log}
+            </Typography>
+          );
         })}
       </Stack>
     </>
